@@ -8,7 +8,6 @@
 
 ### Project: Web Application Penetration testing
 
-## Overview
 This project focuses on identifying and exploiting vulnerabilities in the **Damn Vulnerable Web Application (DVWA)**. Using tools like **Nmap**, **Nikto**, and **SQLMap**, it demonstrates common security flaws and highlights key security practices.
 
 ## Objective
