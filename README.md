@@ -18,12 +18,12 @@ To identify security risks in web applications, practicing with tools and techni
 **Nmap**
 - Identified open ports and services, though OS detection was inconclusive.
 
-### Nikto
+**Nikto**
 - Missing security headers (e.g., `X-Frame-Options`, `X-Content-Type-Options`).
 - Directory indexing in sensitive folders.
 - Exposure of `.git` and `.dockerignore` files.
 
-### SQLMap
+**SQLMap**
 - SQL Injection vulnerability on the `id` parameter.
 - Extracted user login credentials and database structure.
 
