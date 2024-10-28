@@ -1,0 +1,70 @@
+-----------------------------------
+NMAP SCAN
+-----------------------------------
+Host: localhost (127.0.0.1)
+Latency: 0.000066s
+
+Port 80 (HTTP): Running Apache HTTP server (version 2.4.62 on Debian)
+Port 1716 (tcpwrapped): Indicates an unknown or generic TCP wrapper, with limited details available.
+Port 3306 (MySQL): Running MariaDB (version 11.4.3)
+Port 3389 (RDP): Listed as filtered, indicating potential firewall restrictions or limited access control for remote desktop access.
+Port 9876 (HTTP): Another Apache HTTP server instance (also version 2.4.62 on Debian)
+Port 44221 (unknown): Returns 400 Bad Request and 404 Not Found for certain requests, but its purpose remains unclear from the scan.
+
+Operating System: No exact OS match, but Nmap provides a fingerprint for potential submission.
+
+-----------------------------------
+NIKTO SCAN
+-----------------------------------
+Server: Apache/2.4.62 (Debian)
+
+Missing Security Headers: 
+Anti-Clickjacking Header: X-Frame-Options header is absent.
+Content-Type Options Header: X-Content-Type-Options header is not set.
+
+Directory Indexing Found
+Exposed Directories: /DVWA/config/, /DVWA/tests/, /DVWA/database/, /DVWA/docs/
+
+Git Repository Files Exposed
+Files: .git/index, .git/HEAD, .git/config, .gitignore, .dockerignore
+
+Potentially Interesting Files
+Files: /DVWA/login.php
+
+HTTP Method Exposure
+Allowed HTTP Methods: OPTIONS, HEAD, GET, POST .
+
+-----------------------------------
+SQLMAP FINDINGS
+-----------------------------------
+Target URL: http://localhost/DVWA/vulnerabilities/sqli/?id=1&Submit=Submit#
+
+Technology Stack
+Web Server: Apache 2.4.62 (Debian)
+Database: MySQL >= 5.0 (MariaDB fork)
+Backend Language: PHP
+Operating System: Linux (Debian)
+
+Databases Detected:
+1. dvwa
+2. information_schema
+
+Tables in dvwa:
+1. guestbook
+2. users
+
+Columns in users Table:
+Details about user profiles and login information:
+1. user_id, user, first_name, last_name
+2. avatar (file paths to user avatars)
+3. password (hashed passwords)
+4. last_login (timestamp of last login)
+5. failed_login (tracks failed login attempts)
+
+Extracted Data (Users Table)
+Example: admin with hashed password 5f4dcc3b5aa765d61d8327deb882cf99 (MD5 hash for "password")
+
+ Potential Security Risks
+1. Weak Authentication Mechanisms
+2. Exposure of Sensitive Data
+3. Injection Flaws                                                                      
