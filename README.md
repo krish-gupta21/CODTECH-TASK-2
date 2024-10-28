@@ -15,7 +15,7 @@ To identify security risks in web applications, practicing with tools and techni
 
 ### Tools and Key Findings
 
-### Nmap
+**Nmap**
 - Identified open ports and services, though OS detection was inconclusive.
 
 ### Nikto
